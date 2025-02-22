@@ -26,21 +26,6 @@
 
               <!-- Icons Section -->
               <div class="absolute bottom-4 right-4 flex gap-4">
-                <!-- GitHub Link -->
-                <a v-if="article.github" 
-                   :href="article.github" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="hover:text-gray-300"
-                   @click.stop 
-                >
-                  <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
-
-                  
-                </a>
-
                 <!-- Demo Link for Read More -->
                 <a v-if="article.demo" 
                    :href="article.demo" 
@@ -60,6 +45,27 @@
           </router-link>
         </div>
       </div>
+      <div class="w-full md:w-1/3 h-fit p-8 md:sticky md:top-24">
+        <!-- Sidebar -->
+          <div class="flex flex-col text-left">
+            <div class="bg-clip-text bg-gradient-to-r from-slate-100 to-amber-300 text-transparent">Let's share experiences,
+              stories, and knowledge together.
+            </div>
+            <div class="h-[1px] mt-7 mb-7 w-20 bg-amber-200 aos-init aos-animate mr-2"></div>
+            <div class="hidden md:block">
+              <div class="text-white text-md font-semibold">Topics</div>
+              <div class="mt-3 flex flex-wrap gap-1">
+                <span
+                  class="py-2 px-3 rounded-2xl bg-[#1e1e1f] hover:bg-white/20 text-white text-xs cursor-pointer">NodeJS</span>
+                <span
+                  class="py-2 px-3 rounded-2xl bg-[#1e1e1f] hover:bg-white/20 text-white text-xs cursor-pointer">Technology</span>
+              </div>
+              <!-- <div class="h-[1px] mt-7 mb-7 w-20 bg-amber-200 aos-init aos-animate mr-2"></div> -->
+              <!-- <div class="text-white text-md font-semibold">Popular Articles</div> -->
+
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </template>
@@ -178,4 +184,4 @@ button svg {
   width: 16px;
 }
 
-</style>
+</style>  
