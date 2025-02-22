@@ -3,10 +3,9 @@
     <div class="flex flex-col-reverse md:flex-row relative">
       <div class="w-full md:w-2/3">
         <div class="flex flex-col gap-4 md:px-20 fade-zoom-up">
-          <!-- Wrap the entire article in router-link -->
-          <router-link v-for="article in articles" 
+          <div v-for="article in articles" 
             :key="article.id" 
-            :to="`/read/${article.slug}/${article.id}`" 
+            @click="openModal(article)"
             class="block"
           >
             <article class="bg-[#1e1e1f] border-[#383838] rounded-xl p-5 md:py-7 md:px-8 text-white hover:bg-[#282828] cursor-pointer relative">
@@ -26,7 +25,6 @@
 
               <!-- Icons Section -->
               <div class="absolute bottom-4 right-4 flex gap-4">
-                <!-- Demo Link for Read More -->
                 <a v-if="article.demo" 
                    :href="article.demo" 
                    target="_blank" 
@@ -42,98 +40,93 @@
                 </a>
               </div>
             </article>
-          </router-link>
+          </div>
         </div>
       </div>
       <div class="w-full md:w-1/3 h-fit p-8 md:sticky md:top-24">
         <!-- Sidebar -->
-          <div class="flex flex-col text-left">
-            <div class="bg-clip-text bg-gradient-to-r from-slate-100 to-amber-300 text-transparent">Let's share experiences,
-              stories, and knowledge together.
-            </div>
-            <div class="h-[1px] mt-7 mb-7 w-20 bg-amber-200 aos-init aos-animate mr-2"></div>
-            <div class="hidden md:block">
-              <div class="text-white text-md font-semibold">Topics</div>
-              <div class="mt-3 flex flex-wrap gap-1">
-                <span
-                  class="py-2 px-3 rounded-2xl bg-[#1e1e1f] hover:bg-white/20 text-white text-xs cursor-pointer">NodeJS</span>
-                <span
-                  class="py-2 px-3 rounded-2xl bg-[#1e1e1f] hover:bg-white/20 text-white text-xs cursor-pointer">Technology</span>
-              </div>
-              <!-- <div class="h-[1px] mt-7 mb-7 w-20 bg-amber-200 aos-init aos-animate mr-2"></div> -->
-              <!-- <div class="text-white text-md font-semibold">Popular Articles</div> -->
-
+        <div class="flex flex-col text-left">
+          <div class="bg-clip-text bg-gradient-to-r from-slate-100 to-amber-300 text-transparent">These publications reflect my analytical approach to Computer Science.
+          </div>
+          <div class="h-[1px] mt-7 mb-7 w-20 bg-amber-200 aos-init aos-animate mr-2"></div>
+          <div class="hidden md:block">
+            <div class="text-white text-md font-semibold">Topics</div>
+            <div class="mt-3 flex flex-wrap gap-1">
+              <span
+                class="py-2 px-3 rounded-2xl bg-[#1e1e1f] text-white text-xs cursor-pointer">Machine Learning</span>
+              <span class="py-2 px-3 rounded-2xl bg-[#1e1e1f]  text-white text-xs cursor-pointer">Python</span>
+              <span class="py-2 px-3 rounded-2xl bg-[#1e1e1f]  text-white text-xs cursor-pointer">R</span>
+              <span class="py-2 px-3 rounded-2xl bg-[#1e1e1f]  text-white text-xs cursor-pointer">Chatbots</span>
+              <span class="py-2 px-3 rounded-2xl bg-[#1e1e1f]  text-white text-xs cursor-pointer">Random Forest</span>
             </div>
           </div>
         </div>
+      </div>
     </div>
+
+    <!-- Article Modal -->
+    <ArticleModal 
+      v-if="selectedArticle" 
+      :article="selectedArticle" 
+      :isOpen="isModalOpen" 
+      @close="closeModal" 
+    />
   </div>
 </template>
 
-
-
-
 <script>
-import { useRoute, useRouter } from 'vue-router';
+import ArticleModal from './ArticleModal.vue';
 
 export default {
+  components: {
+    ArticleModal
+  },
   data() {
     return {
-      route: useRoute(),
-      router: useRouter(),
-      title: '',
-      image: '',
-      date: '',
-      content: '',
-      github: '',
-      demo: '',
+      selectedArticle: null,
+      isModalOpen: false,
       articles: [
         {
           id: "1",
           slug: "first-article",
           title: "Optimizing Concrete Strength Prediction: A Random Forest Approach with Hyperparameter Tuning through Random Search for Enhanced Construction Quality",
-          desc: "This is a sample article description.",
+          desc: "Revolutionizing construction with AI: Our model predicts concrete strength with 90%+ accuracy and minimal error!",
           date: "ICICoS 2024",
-          image: "https://ik.imagekit.io/fcuinpkmj/Screenshot%202025-02-21%20040808.png",
-          content: "<p>Full content of the first article goes here...</p>",
-          github: "https://github.com/rafiff23/HumanResource-ShinyWebApp",
-          demo: "https://rafif.shinyapps.io/HumanResource/"
+          image: "https://ik.imagekit.io/fcuinpkmj/Screenshot%202025-02-23%20012943%20(3).png?updatedAt=1740251127420",
+          content: "<p>In order to build stronger and longer-lasting structures, this study enhances concrete mix design with the use of machine learning. Highly accurate predictions were made using the Random Forest model, which attained an MAE below 4 and a R² above 90%. The results demonstrate its ability to improve building quality while minimising errors.</p>",
+          demo: "https://www.researchgate.net/publication/383290176_Optimizing_Concrete_Strength_Prediction_A_Random_Forest_Approach_with_Hyperparameter_Tuning_through_Random_Search_for_Enhanced_Construction_Quality"
         },
         {
           id: "2",
           slug: "second-article",
           title: "Systematic Literature Review on Implementation of Chatbots for Commerce Use",
-          desc: "This is another article description.",
+          desc: "Chatbots are revolutionising online shopping, they make customer contact more engaging, accurate, and user-friendly, just like a human.",
           date: "ICCSCI 2023",
-          image: "https://ik.imagekit.io/fcuinpkmj/image(1).png",
-          content: "<p>Full content of the second article goes here...</p>",
-          github: "",
-          demo: ""
+          image: "https://ik.imagekit.io/fcuinpkmj/Screenshot%202025-02-23%20013327%20(1).png?updatedAt=1740251227228",
+          content: "<p>More prospects for expansion over the internet have arisen as a result of companies' digitisation. Chatbots are becoming more popular as e-commerce solutions for organisations looking to increase client engagement. Chatbots have become easier to use, more accurate, and more lifelike thanks to technological advancements.</p>",
+          demo: "https://www.researchgate.net/publication/375919599_Systematic_Literature_Review_on_Implementation_of_Chatbots_for_Commerce_Use"
+        },
+        {
+          id: "3",
+          slug: "third-article",
+          title: "A Beginner’s Guide to Building Binary Search Trees in Python",
+          desc: "Learn how Binary Search Trees (BST) enable fast lookups and master their implementation in this Medium post!",
+          date: "Medium 2024",
+          image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*_e_9HIsdwaBNGmQOCIbOyQ.jpeg",
+          content: "<p>Has the lightning-fast operation of search engines or your phone's contact prediction ever baffled you? These fast lookups are made possible by the effective data architecture of Binary Search Trees (BST). Learn what BSTs are, what they mean, and how to use them in your own code in this article published on Medium.</p>",
+          demo: "https://medium.com/@muhammadrafif3225/a-beginners-guide-to-building-binary-search-trees-in-python-b5bad0a4c022"
         }
       ]
     };
   },
-  mounted() {
-    this.getDetails();
-  },
   methods: {
-    getDetails() {
-      const id = this.route.params.id;
-      const article = this.articles.find(item => item.id === id);
-
-      if (article) {
-        this.title = article.title;
-        this.image = article.image;
-        this.date = article.date;
-        this.content = article.content;
-        this.github = article.github;
-        this.demo = article.demo;
-      } else {
-        console.error("Article not found");
-      }
+    openModal(article) {
+      this.selectedArticle = article;
+      this.isModalOpen = true;
     },
-    goBack() {
-      this.router.push("/blog"); // Change to your actual blog list route
+    closeModal() {
+      this.isModalOpen = false;
+      this.selectedArticle = null;
     }
   }
 };

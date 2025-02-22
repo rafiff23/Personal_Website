@@ -263,7 +263,7 @@ export default {
         </div>
         <div class="md:w-7/12">
           <p class="mb-3 md:mb-7 fadein-left fadeins-1">
-            &nbsp; &nbsp; &nbsp; Hey there! Hi, I'm Rafif, and I'm a 23-year-old data science explorer. I attended Binus University for my Bachelor of Science in Computer Science and have since taken courses at Purwadhika and Team Algoritma Data Science School to hone my skills in data science and business intelligence. My background in data science and BI was solidified through these courses.
+            &nbsp; &nbsp; &nbsp; Hey there! Hi, I'm Rafif, and I'm a 23-year-old data science explorer. I attended Binus University for my Bachelor of Computer Science and have since taken courses at Purwadhika and Algoritma Data Science School to hone my skills in data science and business intelligence. My background in data science and BI was solidified through these courses.
           </p>
           <p class="mb-3 fadein-left fadeins-2">
             &nbsp; &nbsp; &nbsp; Strong abilities in data visualization, predictive analytics, modeling, and data-driven decision-making complement my proficiency in R, Python, SQL, and Excel. To further assist individuals and businesses in obtaining insightful data, I am highly skilled at developing interactive, user-friendly dashboards, improving data processing, and simplifying workflows.</p>
