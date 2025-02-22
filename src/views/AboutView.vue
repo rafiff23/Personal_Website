@@ -1,4 +1,22 @@
+<script setup>
+import { ref } from "vue";
+
+const selectedImage = ref(null);
+
+const openModal = (image) => {
+  selectedImage.value = image;
+};
+</script>
+
 <script>
+// import { ref } from "vue";
+
+// const selectedImage = ref(null);
+
+// const openModal = (image) => {
+//   selectedImage.value = image;
+// };
+
 export default {
   data() {
     return {
@@ -180,11 +198,50 @@ export default {
           imageUrl: 'https://scipy.org/images/logo.svg',
           status: 'Scientific Computing'
         },
+      ],
+      certificates: [
+        {
+          id: 1,
+          title: 'Data Science',
+          desc : 'at Alogritma Data Science School',
+          date: '2022-12-12',
+          image: 'https://ik.imagekit.io/fcuinpkmj/Screenshot%202025-02-22%20014139.png?updatedAt=1740163346916',
+          slug: 'certificate-1',
+          demo: 'https://ik.imagekit.io/fcuinpkmj/TeamalgoData.pdf?updatedAt=1740214069993',
+        },
+        {
+          id: 2,
+          title: 'Business Intelligence',
+          desc : 'at Alogritma Data Science School',
+          date: '2023-06-27',
+          image: 'https://ik.imagekit.io/fcuinpkmj/TeamAlgoBI_page-0001.jpg?updatedAt=1740216257504',
+          slug: 'certificate-2',
+          demo: 'https://ik.imagekit.io/fcuinpkmj/TeamAlgoBI.pdf?updatedAt=1740214101230',
+        },
+        {
+          id: 3,
+          title: 'Authors',
+          desc : 'at ICICoS 2024',
+          date: '2024-07-18',
+          image: 'https://ik.imagekit.io/fcuinpkmj/icicos2024-certificate_page-0001.jpg?updatedAt=1740216485827',
+          slug: 'certificate-3',
+          demo: 'https://ik.imagekit.io/fcuinpkmj/icicos2024-certificate_page-0001.jpg?updatedAt=1740216485827',
+        },
+        {
+          id: 4,
+          title: 'Authors',
+          desc : 'at ICCSCI 2023',
+          date: '2023-08-03',
+          image: 'https://ik.imagekit.io/fcuinpkmj/Authors%2051-76-4_page-0001.jpg?updatedAt=1740216535806',
+          slug: 'certificate-4',
+          demo: 'https://ik.imagekit.io/fcuinpkmj/ICCSCI.pdf?updatedAt=1740216573277',
+        },
       ]
     };
   }
 }
 </script>
+
 <template>
   <div
     class="bg-[#1e1e1f] px-5 py-5 md:px-12 md:py-10 text-left border border-[#383838] rounded-3xl text-amber-50 mx-3 mb-5">
@@ -209,14 +266,9 @@ export default {
             &nbsp; &nbsp; &nbsp; Hey there! Hi, I'm Rafif, and I'm a 23-year-old data science explorer. I attended Binus University for my Bachelor of Science in Computer Science and have since taken courses at Purwadhika and Team Algoritma Data Science School to hone my skills in data science and business intelligence. My background in data science and BI was solidified through these courses.
           </p>
           <p class="mb-3 fadein-left fadeins-2">
-            &nbsp; &nbsp; &nbsp; Strong abilities in data visualization, predictive analytics, modeling, and data-driven decision-making complement my proficiency in R, Python, SQL, and Excel. To further assist individuals and businesses in obtaining insightful data, I am highly skilled at developing interactive, user-friendly dashboards, improving data processing, and simplifying workflows.
-            
-            
-          </p>
+            &nbsp; &nbsp; &nbsp; Strong abilities in data visualization, predictive analytics, modeling, and data-driven decision-making complement my proficiency in R, Python, SQL, and Excel. To further assist individuals and businesses in obtaining insightful data, I am highly skilled at developing interactive, user-friendly dashboards, improving data processing, and simplifying workflows.</p>
         </div>
-
       </section>
-
     </article>
   </div>
 
@@ -240,50 +292,140 @@ export default {
               <button class="inline-block px-4 py-3 rounded-lg hover:text-white"
                 :class="{ 'text-amber-200 bg-amber-200 bg-opacity-10': activeTab === 2 }" @click="activeTab = 2">Library</button>
             </li>
+            <li class="mr-2">
+              <button class="inline-block px-4 py-3 rounded-lg hover:text-white"
+                :class="{ 'text-amber-200 bg-amber-200 bg-opacity-10': activeTab === 3 }" @click="activeTab = 3">Certificate</button>
+            </li>
           </ul>
         </div>
+
+        <!-- Tech Stack Tab -->
         <div v-show="activeTab === 1">
           <div class="grid grid-cols-2 gap-4 pb-32 md:grid-cols-3 md:gap-8 xl:grid-cols-4 xl:gap-10 2xl:gap-12">
             <div v-for="item in tech" :key="item.id">
-              <div
-                class="item-tech flex cursor-pointer items-center gap-2 rounded border border-amber-200 px-2 py-2 hover:bg-amber-200 hover:bg-opacity-10 md:gap-3 lg:px-3">
+              <div class="item-tech flex cursor-pointer items-center gap-2 rounded border border-amber-200 px-2 py-2 hover:bg-amber-200 hover:bg-opacity-10 md:gap-3 lg:px-3">
                 <div class="flex h-12 w-12 items-center justify-center p-0 lg:h-16 lg:w-16 lg:p-2 zoom-in">
                   <img alt="HTML" loading="lazy" width="32" height="32" decoding="async" data-nimg="1"
-                    class="img-tech drop-shadow-xl transition-all duration-300 h-[65%] w-[65%] lg:h-[85%] lg:w-[85%]  "
-                    :src="item.imageUrl" style="color: transparent;">
+                    class="img-tech drop-shadow-xl transition-all duration-300 h-[65%] w-[65%] lg:h-[85%] lg:w-[85%]" :src="item.imageUrl" style="color: transparent;">
                 </div>
                 <div class="flex items-center text-sm md:text-base lg:text-lg">
-                  <div class="tech font-medium text-secondary transition-all duration-300 translate-y-0 ">{{ item.name }}
+                  <div class="tech font-medium text-secondary transition-all duration-300 translate-y-0">{{ item.name }}</div>
+                  <div class="status-tech opacity-0 absolute mt-5 text-[10px] text-amber-200 transition-all duration-300 md:text-xs lg:text-sm">
+                    {{ item.status }}
                   </div>
-                  <div
-                    class="status-tech opacity-0 absolute mt-5 text-[10px] text-amber-200 transition-all duration-300 md:text-xs lg:text-sm">
-                    {{ item.status }}</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Library Tab -->
         <div v-show="activeTab === 2">
           <div class="grid grid-cols-2 gap-4 pb-32 md:grid-cols-3 md:gap-8 xl:grid-cols-4 xl:gap-10 2xl:gap-12">
             <div v-for="item in tools" :key="item.id">
-              <div
-                class="item-tech flex cursor-pointer items-center gap-2 rounded border border-amber-200 px-2 py-2 hover:bg-amber-200 hover:bg-opacity-10 md:gap-3 lg:px-3">
+              <div class="item-tech flex cursor-pointer items-center gap-2 rounded border border-amber-200 px-2 py-2 hover:bg-amber-200 hover:bg-opacity-10 md:gap-3 lg:px-3">
                 <div class="flex h-12 w-12 items-center justify-center p-0 lg:h-16 lg:w-16 lg:p-2 zoom-in">
                   <img alt="HTML" loading="lazy" width="32" height="32" decoding="async" data-nimg="1"
-                    class="img-tech drop-shadow-xl transition-all duration-300 h-[65%] w-[65%] lg:h-[85%] lg:w-[85%]  "
-                    :src="item.imageUrl" style="color: transparent;">
+                    class="img-tech drop-shadow-xl transition-all duration-300 h-[65%] w-[65%] lg:h-[85%] lg:w-[85%]" :src="item.imageUrl" style="color: transparent;">
                 </div>
                 <div class="flex items-center text-sm md:text-base lg:text-lg">
-                  <div class="tech font-medium text-secondary transition-all duration-300 translate-y-0 ">{{ item.name }}
+                  <div class="tech font-medium text-secondary transition-all duration-300 translate-y-0">{{ item.name }}</div>
+                  <div class="status-tech opacity-0 absolute mt-5 text-[10px] text-amber-200 transition-all duration-300 md:text-xs lg:text-sm">
+                    {{ item.status }}
                   </div>
-                  <div
-                    class="status-tech opacity-0 absolute mt-5 text-[10px] text-amber-200 transition-all duration-300 md:text-xs lg:text-sm">
-                    {{ item.status }}</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Certificates Tab -->
+        <!-- <div v-show="activeTab === 3">
+          <div class="container mx-auto p-3 md:p-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <router-link v-for="cert in certificates" :key="cert.id" :to="`/certificate/${cert.slug}/${cert.id}`" class="block">
+                <article class="bg-[#1e1e1f] border-[#383838] rounded-xl p-5 md:py-7 md:px-8 text-white hover:bg-[#282828] cursor-pointer relative group">
+                  <div class="flex justify-center items-center">
+                    <div class="w-64 h-48 flex items-center justify-center">
+                      <img :src="cert.image" class="rounded-lg md:rounded-xl w-full h-full object-cover" alt="Certificate Image">
+                    </div>
+                  </div>
+                  <div class="mt-4 text-center">
+                    <h1 class="text-sm md:text-md text-amber-200 font-bold mb-2">{{ cert.title }}</h1>
+                    <div class="text-xs text-slate-400 italic">{{ cert.date }}</div>
+                  </div>
+                  <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <a href="javascript:void(0)" class="px-4 py-2 text-sm bg-amber-200 text-white rounded-lg hover:bg-amber-300">
+                      View Certificate
+                    </a>
+                  </div> -->
+                  <!-- Tautan Demo -->
+                  <!-- <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <a v-if="cert.demo" :href="cert.demo" target="_blank" rel="noreferrer" title="View certificate" class="transition-all hover:text-accent">
+                      <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+              </router-link>
+            </div>
+          </div>
+        </div> -->
+
+        <div v-if="activeTab === 3" class="certificate-section">
+          <h2 class="text-2xl font-bold text-white mb-6">Certificates</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div 
+              v-for="cert in certificates" 
+              :key="cert.id" 
+              class="relative flex flex-col items-center gap-1 rounded-xl bg-[#1e1e1f] hover:bg-[#282828] border border-[#383838] p-5 md:py-7 md:px-8 transition duration-300 cursor-pointer"
+              @click="openModal(cert.image)"
+            >
+              <img :src="cert.image" :alt="cert.title" class="w-full h-48 object-cover rounded-md" />
+              <h3 class="text-lg font-semibold text-white mt-2">{{ cert.title }}</h3>
+              <p class="text-[#b2b2b2] text-sm">{{ cert.desc }}</p>
+              <p class="text-[#e1c265] text-sm">{{ cert.date }}</p>
+              
+              <!-- Icon View Certificate -->
+              <a 
+                :href="cert.demo" 
+                target="_blank" 
+                class="absolute bottom-4 right-4 text-gray-300 hover:text-[#FFD700] transition duration-300"
+                @click.stop
+              >
+                <svg stroke="currentColor"
+                  fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"
+                  height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Modal -->
+          <div v-if="selectedImage" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50" @click="selectedImage = null">
+            <div class="relative bg-[#1e1e1f] p-6 md:p-8 rounded-xl w-[90vw] max-w-5xl max-h-[90vh] overflow-hidden flex flex-col items-center" @click.stop>
+              <!-- <button class="absolute top-2 right-2 text-[#FFD700] text-2xl" @click="selectedImage = null">&times;</button> -->
+              <button 
+                @click="selectedImage = null" 
+                class="absolute top-4 right-4 bg-black bg-opacity-60 text-white rounded-full p-2 transition duration-300 hover:bg-opacity-80 hover:scale-110"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <img :src="selectedImage" class="w-full rounded-lg" />
+            </div>
+          </div>
+        </div>
+
+
+        
       </section>
     </article>
   </div>

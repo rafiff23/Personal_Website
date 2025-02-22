@@ -12,12 +12,13 @@
         </h1>
       </div>
       <p class="text-white pr-4 fade-in-from-left">Welcome to My personal website. <span class="wave">👋🏼</span></p>
-      <div class="flex md:order-2 fadein-bot space-x-4">
+      <div class="flex flex-wrap justify-center md:justify-start items-center gap-4 mt-4">
           <a href="https://github.com/rafiff23" target="_blank"><img class="w-9 rounded-full" src="https://seeklogo.com/images/G/github-logo-2E3852456C-seeklogo.com.png" alt="github"></a>
           <a href="https://www.researchgate.net/profile/Muhammad-Rafif-13?ev=hdr_xprf" target="_blank"><img class="w-9 rounded-full" src="data:image/png;base64,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" alt="ResearchGate"></a>
           <a href="https://www.linkedin.com/in/muhammad-rafif-838938232/" target="_blank"><img class="w-9 rounded-full" src="https://img.icons8.com/?size=100&id=60444&format=png&color=FFFFFF" alt="LinkedIn"></a>
       </div>
       <br>
+    <a href="https://ik.imagekit.io/fcuinpkmj/Resume%20Rafif.pdf?updatedAt=1740162471308" target="_blank">
       <button
         class="fadein-bot fade-500 flex items-center py-2 px-4 mx-auto text-sm font-medium rounded-lg border transition duration-300 md:py-2.5 md:px-5 md:mx-0 text-amber-200 border-amber-200 hover:bg-amber-200 hover:bg-opacity-10 bg-transparent focus:outline-none w-fit"><svg
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mr-2 w-4 h-4">
@@ -28,6 +29,7 @@
             d="M14.25 5.25a5.23 5.23 0 00-1.279-3.434 9.768 9.768 0 016.963 6.963A5.23 5.23 0 0016.5 7.5h-1.875a.375.375 0 01-.375-.375V5.25z">
           </path>
         </svg>Download Resume</button>
+    </a>
     </div>
     <div class="flex justify-center md:justify-start fadein-right"><img alt="avatar" fetchpriority="high" width="300" height="300" decoding="async" data-nimg="1"
         class="w-10/12 md:h-auto rounded-full border-4 border-amber-200 pict" src="https://ik.imagekit.io/fcuinpkmj/12.JPG?updatedAt=1740054785328">

@@ -37,7 +37,7 @@
       </div>
     </nav>
 
-    <div class="md:mt-[100px]">
+    <div class="md:mt-[100px] pb-20">
       <router-view />
     </div>
   </div>

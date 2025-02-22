@@ -64,7 +64,7 @@ export default {
           imageUrl: 'fifa',
           status: 'Making basic CRUD (Create, Read, Update, Delete) for FC24 Ultimate Team Companion App.',
           tech: 'Python',
-          github: 'https://github.com/rafiff23/GudangGaram_Stock_Forecasting',
+          github: 'https://github.com/rafiff23/FC24_CRUD',
           demo: 'null'
         },
         {
@@ -73,8 +73,8 @@ export default {
           imageUrl: 'dashboardcollection',
           status: 'A Comprehensive Collection of Dashboards Created Using Tableau and Looker Studio Showcasing Insights from Past Projects.',
           tech: 'Tableau, Looker Studio',
-          github: 'https://github.com/rafiff23/GudangGaram_Stock_Forecasting',
-          demo: 'null'
+          github: 'null',
+          demo: 'https://www.canva.com/design/DAGfqbbg2js/temutIJi4rYBSZcinn5WPw/edit?utm_content=DAGfqbbg2js&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton'
         },
         {
           id: 9,
@@ -96,13 +96,32 @@ export default {
         },
         {
           id: 11,
+          name: 'Skin Cancer Prediction',
+          imageUrl: 'skincancer',
+          status: 'To build deep learning models to classify dermal cell images and detect skin cancer.',
+          tech: 'Python, Deep Learning',
+          github: 'https://github.com/rafiff23/SkinCancer_Prediction',
+          demo: 'null'
+        },
+        {
+          id: 12,
           name: 'E-Commerce RFM',
           imageUrl: 'EcommerceRFM',
           status: 'E-Commerce RFM Analysis and building interactive Dashboard using Shiny Web App and R.',
-          tech: 'Tableau, Looker Studio',
-          github: 'https://github.com/rafiff23/GudangGaram_Stock_Forecasting',
-          demo: 'null'
-        }
+          tech: 'R, Shiny Web App',
+          github: 'https://github.com/rafiff23/ECommerce',
+          demo: 'https://rafif.shinyapps.io/Ecommerce/'
+        },
+        {
+          id: 13,
+          name: 'Appsheet',
+          imageUrl: 'Apsheet',
+          status: 'A Collection of App Created Using Apsheet no-code App Showcasing Insights from Past Projects.',
+          tech: 'Appsheet, Google Sheets',
+          github: 'null',
+          demo: 'https://www.canva.com/design/DAGfwZ60Ees/qgKcRWKzPfcpTy6TRazfuA/edit?utm_content=DAGfwZ60Ees&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton'
+        },
+
       ]
     };
   }

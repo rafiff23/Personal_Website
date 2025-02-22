@@ -1,4 +1,4 @@
-# portofolio-v2
+# Perononal - Portfolio
 
 ## Project setup
 ```
