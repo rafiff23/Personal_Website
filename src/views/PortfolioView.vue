@@ -98,7 +98,7 @@ export default {
           id: 11,
           name: 'Skin Cancer Prediction',
           imageUrl: 'skincancer',
-          status: 'To build deep learning models to classify dermal cell images and detect skin cancer.',
+          status: 'Building deep learning models to classify dermal cell images and detect skin cancer.',
           tech: 'Python, Deep Learning',
           github: 'https://github.com/rafiff23/SkinCancer_Prediction',
           demo: 'null'
@@ -120,6 +120,15 @@ export default {
           tech: 'Appsheet, Google Sheets',
           github: 'null',
           demo: 'https://www.canva.com/design/DAGfwZ60Ees/qgKcRWKzPfcpTy6TRazfuA/edit?utm_content=DAGfwZ60Ees&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton'
+        },
+        {
+          id: 14,
+          name: 'Audio Classification',
+          imageUrl: 'audio',
+          status: 'Building machine learning models using Neural Networks (NN) and Convolutional Neural Networks (CNN) for audio classification.',
+          tech: 'Python, Deep Learning',
+          github: 'https://github.com/rafiff23/Audio_Classification',
+          demo: ''
         },
 
       ]
