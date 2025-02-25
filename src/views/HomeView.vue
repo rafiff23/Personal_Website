@@ -32,7 +32,7 @@
     </a>
     </div>
     <div class="flex justify-center md:justify-start fadein-right"><img alt="avatar" fetchpriority="high" width="300" height="300" decoding="async" data-nimg="1"
-        class="w-10/12 md:h-auto rounded-full border-4 border-amber-200 pict" src="https://ik.imagekit.io/fcuinpkmj/12.JPG?updatedAt=1740054785328">
+        class="w-10/12 md:h-auto rounded-full border-4 border-amber-200 pict" src="https://ik.imagekit.io/fcuinpkmj/SR02132.JPG?updatedAt=1740474501425">
     </div>
   </main>
 </template>
