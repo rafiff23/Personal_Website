@@ -1,4 +1,4 @@
-# Perononal - Portfolio
+# Perosonal - Portfolio
 
 ## Project setup
 ```
