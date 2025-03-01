@@ -28,7 +28,7 @@
           <div class="text-left text-black mt-8" v-html="article.content"></div>
   
           <!-- Icons Section -->
-          <div class="absolute bottom-4 right-4 mt-4 flex gap-4">
+          <div class="mt-6 flex justify-end gap-4">
             <a v-if="article.demo" 
                :href="article.demo" 
                target="_blank" 
@@ -69,36 +69,49 @@
   </script>
   
   <style scoped>
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem; /* Ensures spacing on small screens */
+}
+
+article {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding-bottom: 60px;
   
+  /* Make modal responsive */
+  width: 90%;
+  max-width: 800px; /* Limits max size on large screens */
+  max-height: 90vh; /* Prevents overflowing on small screens */
+  overflow-y: auto; /* Enables scrolling when content is too large */
+}
+
+/* Adjust image responsiveness */
+/* article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+} */
+
+/* Adjust close button for smaller screens */
+@media (max-width: 600px) {
   .close-button {
-    position: absolute;
-    top: -40px;
-    right: -40px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 32px;
-    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
   }
-  
-  article {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    padding-bottom: 60px;
-  }
+}
+
   </style>
